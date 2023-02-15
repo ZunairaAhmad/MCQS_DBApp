@@ -2,8 +2,8 @@ package com.example.mcqs_dbapp;
 
 public class APP_BO {
     private int question;
-    private int score;
-    private boolean answer;
+    private String score;
+    private String answer;
 
     public APP_BO(int question, String score, String answer) {
         this.question = question;
@@ -19,24 +19,24 @@ public class APP_BO {
         this.question = quest;
     }
 
-    public int getScore(){
+    public String getScore(){
         return score;
     }
 
-    public void setScore(int sco){
+    public void setScore(String sco){
         this.score = sco;
     }
 
-    public boolean getAnswer(){
+    public String getAnswer(){
         return answer;
     }
 
-    public void setAnswer(boolean ans){
+    public void setAnswer(String ans){
         answer = ans;
     }
 
     @Override
     public String toString() {
-        return "APP_BO {question=" + question + ", score=" + score + ", answer=" + answer + "]";
+        return "{Question=" + question + ", Your input=" + score + ", Correct answer=" + answer + "}";
     }
 }
