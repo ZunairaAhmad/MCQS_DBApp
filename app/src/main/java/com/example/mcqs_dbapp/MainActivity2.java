@@ -18,7 +18,9 @@ import java.util.ArrayList;
 public class MainActivity2 extends AppCompatActivity {
 
     ImageButton whatsapp, github, result;
-    TextView wapp, hub, res;
+    TextView wapp;
+    TextView hub;
+    TextView res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
