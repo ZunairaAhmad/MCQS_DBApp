@@ -18,9 +18,7 @@ import java.util.ArrayList;
 public class MainActivity2 extends AppCompatActivity {
 
     ImageButton whatsapp, github, result;
-    TextView wapp;
-    TextView hub;
-    TextView res;
+    TextView wapp, hub, res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,5 +63,14 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+        result = (ImageButton) findViewById(R.id.resultButton);
+        result.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent2 = new Intent(MainActivity2.this,Result.class);
+                startActivity(intent2);
+            }
+        });
     }
 }

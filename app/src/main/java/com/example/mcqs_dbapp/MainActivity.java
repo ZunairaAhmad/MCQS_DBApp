@@ -2,6 +2,7 @@ package com.example.mcqs_dbapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Switch;
@@ -23,11 +24,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int score=0;
     int num=0;
     boolean flag;
+    String ans = "", Uinput = "";
+    DBHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        db = new DBHandler(this);
+        db.truncate();
 
         textQ=findViewById(R.id.textQuestions);
         textQNum = findViewById(R.id.QNo);
@@ -70,7 +76,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (questCount <=20) {
             switch (view.getId()) {
                 case R.id.prime:
+
+                    Uinput = "Prime";
                     if (flag == false) {
+                        ans="Prime";
                         textAns.setText("Wohoo! Correct Answer!");
                         score++;
                         textScore.setText("Total Score: " + score);
@@ -80,7 +89,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
 
                 case R.id.composite:
+
+                    Uinput = "Composite";
                     if (flag == true) {
+                        ans="Composite";
                         textAns.setText("Wohoo! Correct Answer!");
                         score++;
                         textScore.setText("Total Score: " + score);
@@ -88,7 +100,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         textAns.setText("Ouch! Wrong Answer!");
                     }
                     break;
-            }questCount++;
+            }
+            db.insertData(new APP_BO(num,Uinput,ans));
+            questCount++;
+            if (questCount == 20)
+            {
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                startActivity(intent);
+            }
             RandomNumbersGeneration();
         }
 
