@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         score++;
                         textScore.setText("Total Score: " + score);
                     } else {
-                        textAns.setText("Ouch! Incorrect Answer!");
+                        textAns.setText("Ouch! Wrong Answer!");
                     }
                     break;
 
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         score++;
                         textScore.setText("Total Score: " + score);
                     } else {
-                        textAns.setText("Ouch! Incorrect Answer!");
+                        textAns.setText("Ouch! Wrong Answer!");
                     }
                     break;
             }questCount++;
